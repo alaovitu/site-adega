@@ -22,24 +22,4 @@ for product in filtered_products:
     with col1:
         st.write(f"**{product['name']}** - R$ {product['price']:.2f}")
 
-    with col2:
-        # Adiciona ao carrinho ao clicar no botão "Adicionar"
-        if st.button(f"Adicionar", key=product['name']):
-            st.session_state.cart.append(product)
-
-# Exibir o carrinho na barra lateral
-st.sidebar.title("🛍️ Carrinho")
-if len(st.session_state.cart) > 0:
-    total = 0
-    for item in st.session_state.cart:
-        st.sidebar.write(f"{item['name']} - R$ {item['price']:.2f}")
-        total += item['price']
-
-    st.sidebar.write(f"**Total: R$ {total:.2f}**")
-else:
-    st.sidebar.write("Carrinho vazio!")
-
-# Finalizar compra
-if st.sidebar.button("Finalizar Compra"):
-    st.session_state.cart = []
-    st.sidebar.success("Compra finalizada com sucesso!")
+    
